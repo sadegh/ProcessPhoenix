@@ -4,9 +4,21 @@ android:
   components:
     - build-tools-22.0.1
     - android-22
+    - extra-android-m2repository
+    - sys-img-armeabi-v7a-android-18
 
 jdk:
   - oraclejdk8
+
+install: ./gradlew assemble
+
+before_script:
+  - echo no | android create avd --force -n test -t android-18 --abi armeabi-v7a
+  - emulator -avd test -no-skin -no-audio -no-window &
+  - android-wait-for-emulator
+
+script:
+  - ./gradlew installDebug connectedCheck
 
 after_success:
   - .buildscript/deploy_snapshot.sh

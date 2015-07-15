@@ -20,5 +20,9 @@ ext {
 
   ci = 'true'.equals(System.getenv('CI'))
 
+  supportTestRunner = 'com.android.support.test:runner:0.3'
+  supportTestRules = 'com.android.support.test:rules:0.3'
+  supportTestUiAutomator = 'com.android.support.test.uiautomator:uiautomator-v18:2.1.1'
+  truth = 'com.google.truth:truth:0.27'
   butterKnife = 'com.jakewharton:butterknife:7.0.0'
 }

@@ -1,11 +1,19 @@
 apply plugin: 'com.android.library'
 
+dependencies {
+  androidTestCompile rootProject.ext.supportTestRunner
+  androidTestCompile rootProject.ext.supportTestRules
+  androidTestCompile rootProject.ext.supportTestUiAutomator
+  androidTestCompile rootProject.ext.truth
+}
+
 android {
   compileSdkVersion rootProject.ext.compileSdkVersion
   buildToolsVersion rootProject.ext.buildToolsVersion
 
   defaultConfig {
     minSdkVersion rootProject.ext.minSdkVersion
+    testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
   }
 
   compileOptions {
