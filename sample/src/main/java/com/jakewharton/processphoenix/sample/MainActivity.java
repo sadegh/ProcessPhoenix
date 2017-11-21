@@ -31,8 +31,8 @@ public final class MainActivity extends Activity {
   }
 
   @OnClick(R.id.restart_with_intent) void restartWithIntent() {
-    Intent nextIntent = new Intent(this, MainActivity.class);
+    Intent nextIntent = new Intent(this, LauncherActivity.class);
     nextIntent.putExtra(EXTRA_TEXT, "Hello!");
-    ProcessPhoenix.triggerRebirth(this, nextIntent);
+    ProcessPhoenix.triggerRebirth(this, new Intent[] {nextIntent});
   }
 }
